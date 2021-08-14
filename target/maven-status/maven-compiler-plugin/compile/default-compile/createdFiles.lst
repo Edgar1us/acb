@@ -1,0 +1,6 @@
+modelo\Equipo.class
+vista\App.class
+conexion\Conexion.class
+modelo\Entrenador.class
+modelo\Jugador.class
+modelo\TipoJugador.class

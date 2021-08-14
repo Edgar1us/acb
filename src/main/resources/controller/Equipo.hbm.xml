@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="modelo.Equipo" table="equipo">
+      
+        <id name="idEquipo" column="idEquipo" type="integer">
+            <generator class="increment"></generator>
+        </id>
+      
+        <property name="nombreEquipo" column="nombreEquipo" type="string"/>
+      
+        <one-to-one name="entrenador" cascade="all"/>
+      
+        <set name="jugadores" cascade="all" inverse="true">
+            <key>
+                <column name="idEquipo"/>
+            </key>
+            <one-to-many class="modelo.Jugador"/>
+        </set>
+      
+    </class>
+</hibernate-mapping>

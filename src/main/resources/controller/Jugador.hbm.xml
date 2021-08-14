@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="modelo.Jugador" table="jugador">
+      
+        <id name="idJugador" column="idJugador" type="integer">
+            <generator class="increment"></generator>
+        </id>
+      
+        <property name="nombreJugador" column="nombreJugador" type="string"/>
+        <property name="ape1" column="ape1" type="string"/>
+        <property name="ape2" column="ape2" type="string"/>
+        <property name="lesionado" column="lesionado" type="boolean"/>
+        <property name="fechaNacimiento" column="fechaNacimiento" type="date"/>
+        <property name="horaPartido" column="horaPartido" type="time"/>
+        <property name="fechaHoraPartido" column="FechaHoraPartido" type="timestamp"/>
+        <property name="valorMercado" column="valorMercado" type="float"/>
+        <property name="sueldo" column="sueldo" type="big_decimal"/>
+        <property name="tipoJugador">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">modelo.TipoJugador</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        
+        <many-to-one name="equipo">
+            <column name="idEquipo"/>
+        </many-to-one>
+      
+    </class>
+</hibernate-mapping>
